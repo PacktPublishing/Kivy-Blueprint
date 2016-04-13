@@ -1,0 +1,77 @@
+#:import C kivy.utils.get_color_from_hex
+
+<Pipe>:
+    canvas:
+        Color:
+            rgb: (1, 1, 1)
+
+        Rectangle:
+            pos: (self.x + 4, self.FLOOR)
+            size: (56, self.lower_len)
+            texture: self.tx_pipe
+            tex_coords: self.lower_coords
+
+        Rectangle:
+            pos: (self.x, self.FLOOR + self.lower_len)
+            size: (64, self.PCAP_HEIGHT)
+            texture: self.tx_pcap
+
+        Rectangle:
+            pos: (self.x + 4, self.upper_y)
+            size: (56, self.upper_len)
+            texture: self.tx_pipe
+            tex_coords: self.upper_coords
+
+        Rectangle:
+            pos: (self.x, self.upper_y - self.PCAP_HEIGHT)
+            size: (64, self.PCAP_HEIGHT)
+            texture: self.tx_pcap
+
+    size_hint: (None, 1)
+    width: 64
+
+<Bird>:
+    canvas.before:
+        PushMatrix
+        Rotate:
+            angle: root.angle
+            axis: (0, 0, 1)
+            origin: root.center
+
+    canvas.after:
+        PopMatrix
+
+FloatLayout:
+    Background:
+        id: background
+        canvas:
+            Rectangle:
+                pos: self.pos
+                size: (self.width, 96)
+                texture: self.tx_floor
+
+            Rectangle:
+                pos: (self.x, self.y + 96)
+                size: (self.width, 64)
+                texture: self.tx_grass
+
+            Rectangle:
+                pos: (self.x, self.height - 144)
+                size: (self.width, 128)
+                texture: self.tx_cloud
+
+    Bird:
+        id: bird
+        pos_hint: {'center_x': 0.3333, 'center_y': 0.6}
+        size: (54, 54)
+        size_hint: (None, None)
+        source: 'bird.png'
+
+    Label:
+        color: C('432c1c')
+        font_name: 'PressStart2P.ttf'
+        font_size: 20
+        text: 'Click, tap or press space to fly'
+        pos_hint: {'center_x': 0.5, 'y': 0}
+        height: 75
+        size_hint: (1, None)

@@ -1,0 +1,118 @@
+#:import C kivy.utils.get_color_from_hex
+
+<RadioButton>
+    background_normal: 'color_button_normal.png'
+    background_down: 'color_button_down.png'
+    border: (3, 3, 3, 3)
+
+<ColorButton@RadioButton>:
+    group: 'color'
+    on_release: app.canvas_widget.set_color(self.background_color)
+
+<LineWidthButton@RadioButton>:
+    group: 'line_width'
+    on_release: app.canvas_widget.set_line_width(self.text)
+    color: C('#2c3e50')
+    background_color: C('#ecf0f1')
+
+<CanvasWidget>:
+    Button:
+        text: 'Delete'
+        font_size: 20
+        on_release: root.clear_canvas()
+        background_normal: 'red_button_normal.png'
+        background_down: 'red_button_down.png'
+        border: (2, 2, 2, 2)
+        right: root.right
+        top: root.top
+        width: 80
+        height: 40
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 2
+        spacing: 2
+        x: 0
+        top: root.top
+        width: 80
+        height: 110
+
+        LineWidthButton:
+            text: 'Thin'
+
+        LineWidthButton:
+            text: 'Normal'
+            state: 'down'
+
+        LineWidthButton:
+            text: 'Thick'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        padding: 2
+        spacing: 2
+        x: 0
+        y: 0
+        width: root.width
+        height: 40
+
+        ColorButton:
+            background_color: C('#2980b9')
+            state: 'down'
+
+        ColorButton:
+            background_color: C('#16a085')
+
+        ColorButton:
+            background_color: C('#27ae60')
+
+        ColorButton:
+            background_color: C('#f39c12')
+
+        ColorButton:
+            background_color: C('#d35400')
+
+        ColorButton:
+            background_color: C('#c0392b')
+
+        ColorButton:
+            background_color: C('#8e44ad')
+
+        ColorButton:
+            background_color: C('#bdc3c7')
+
+        ColorButton:
+            background_color: C('#7f8c8d')
+
+        ColorButton:
+            background_color: C('#2c3e50')
+
+        ColorButton:
+            background_color: C('#3498db')
+
+        ColorButton:
+            background_color: C('#1abc9c')
+
+        ColorButton:
+            background_color: C('#2ecc71')
+
+        ColorButton:
+            background_color: C('#f1c40f')
+
+        ColorButton:
+            background_color: C('#e67e22')
+
+        ColorButton:
+            background_color: C('#e74c3c')
+
+        ColorButton:
+            background_color: C('#9b59b6')
+
+        ColorButton:
+            background_color: C('#ecf0f1')
+
+        ColorButton:
+            background_color: C('#95a5a6')
+
+        ColorButton:
+            background_color: C('#34495e')
