@@ -1,6 +1,6 @@
 # Kivy-Blueprint
 kivy Blueprints Code files
-[Kivy Blueprints] (https://www.packtpub.com/application-development/kivy-blueprints)
+[Kivy Blueprints] (https://www.packtpub.com/application-development/kivy-blueprints?utm_source=github&utm_medium=repository&utm_campaign=9781783987849)
 
 ## Related Kivy books
 
